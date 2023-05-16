@@ -4,8 +4,7 @@ output 한자리 수 가 될때까지의 f(n)
     while len(n)!=1
     - f(n)구현
         -각 자리수 계산
-        -n 다시 만들기
-        
+        -n 다시 만들기   
 """
 T = int(input())
 li=[]
