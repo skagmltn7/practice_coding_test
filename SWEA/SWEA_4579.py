@@ -30,11 +30,11 @@ def palindrome_with_wildcard(string):
                 else:
                     return False
         else:
-            if string[left]=='*': right-=1
-            elif string[left]=='*': left+=1
-            else:
+            if string[left]!='*' and string[left]!='*': 
                 left+=1
                 right-=1
+            else:
+                left+=1
     else: return True
 
 T=int(input())
