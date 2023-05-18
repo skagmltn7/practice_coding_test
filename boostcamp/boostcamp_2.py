@@ -1,4 +1,9 @@
+
 memory = {"BOOL":1, "SHORT":2, "FLOAT":4, "INT":8,"LONG":16}
+param0 = ["INT","INT","BOOL","SHORT","LONG"]
+param1 = ["INT","SHORT","FLOAT","INT","BOOL"]
+param2 = ["FLOAT","SHORT","BOOL","BOOL","BOOL","INT"]
+param3 = ["BOOL","LONG","SHORT","LONG","BOOL","LONG","BOOL","LONG","SHORT","LONG","LONG"]
 
 def grouping(param0):
     total_bytes,bytes=0,0
