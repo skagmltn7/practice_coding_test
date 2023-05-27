@@ -20,8 +20,5 @@ while queue:
     if cnt==0: 
         cnt = k
         answer.append(queue.pop())
-print('<',end='')
-for th in answer[:-1]: print(th,end=', ')
-print(answer[-1],end='>')
 
-
+print('<'+', '.join(map(str,answer))+'>')
