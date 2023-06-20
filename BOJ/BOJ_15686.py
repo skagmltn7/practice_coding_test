@@ -6,7 +6,6 @@
         comination으로 m개의 치킨집 뽑고 집과의 최단거리
 
     - 도시의 치킨거리 구하기
-    
 """
 import sys; input = sys.stdin.readline
 from itertools import combinations
@@ -35,7 +34,5 @@ for c in combinations(chickenShops,m):
             streetPerHouse = min(streetPerHouse, chickenRoad(h,c[i]))
         combiRoad += streetPerHouse
     answer = min(answer,combiRoad)
+
 print(answer)
-
-
-
