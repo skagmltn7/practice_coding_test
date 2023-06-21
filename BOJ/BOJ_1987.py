@@ -8,27 +8,23 @@
 import sys; input = sys.stdin.readline
 
 r, c = map(int, input().split())
-board = []
-for _ in range(r): board.append(input().rstrip())
+board = [list(input().rstrip()) for _ in range(r)]
 
 answer = 0
 route = set()
-route.add(board[0][0])
+dy, dx = (-1,0,1,0), (0,1,0,-1)
 
-dy = (-1,0,1,0)
-dx = (0,1,0,-1)
-
-def dfs(plot,cnt):
+def dfs(y,x,cnt):
     global answer
     answer = max(answer, cnt)
-    cury, curx = plot
-    route.add(board[cury][curx])
+    route.add(board[y][x])
+    
     for i in range(4):
-        ny, nx = cury + dy[i], curx + dx[i]
+        ny, nx = y + dy[i], x + dx[i]
         if 0 <= ny < r and 0 <= nx < c:
             if board[ny][nx] not in route:
-                dfs((ny,nx),cnt+1)
-    route.remove(board[cury][curx])
+                dfs(ny,nx,cnt+1)
+    route.remove(board[y][x])
 
-dfs((0,0),1)
+dfs(0,0,1)
 print(answer)
