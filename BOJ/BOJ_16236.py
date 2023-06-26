@@ -28,21 +28,6 @@ class Baby:
     def setLocation(self,y, x):
         self.y = y
         self.x = x
-
-n = int(input())
-board = []
-baby = Baby()
-fishes = dict().fromkeys(range(1,7),0)
-
-for i in range(n):
-    board.append(list(map(int,input().split())))
-    for j in range(n):
-        fishSize = board[i][j]
-        if fishSize == 9: 
-            baby.setLocation(i,j)
-            board[i][j] = 0
-        elif 0 < fishSize: 
-            fishes[fishSize] += 1
             
 dy = (-1,0,1,0)
 dx = (0,1,0,-1)
@@ -81,6 +66,8 @@ def sizeChk():
         if baby.size <= 6: eatableNum += fishes[baby.size]
         baby.size += 1
         baby.eatCnt = 0
+
+
 
 clock = 0
 eatableNum = 0
