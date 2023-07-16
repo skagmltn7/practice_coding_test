@@ -12,7 +12,7 @@ left 서브트리
 n = 1e4
 """
 import sys
-
+sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 
 
