@@ -7,8 +7,8 @@ output: 정렬 결과 출력
         - x 오름차순
 """
 n = int(input())
-points=[]
+points = []
 for _ in range(n):
-    points.append(tuple(map(int,input().split())))
-for point in sorted(points,key=lambda x: (x[1],x[0])):
-    print(point[0],point[1])
+    points.append(tuple(map(int, input().split())))
+for point in sorted(points, key=lambda x: (x[1], x[0])):
+    print(point[0], point[1])
