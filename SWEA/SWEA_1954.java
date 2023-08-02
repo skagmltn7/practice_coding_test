@@ -55,15 +55,15 @@ public class SWEA_1954 {
     }
 }
 
-//class Plot {
-//	int y;
-//	int x;
-//	int num;
-//	
-//	public Plot(int y, int x, int num) {
-//		this.y = y;
-//		this.x = x;
-//		this.num = num;
-//	}
-//}
+class Plot {
+	int y;
+	int x;
+	int num;
+	
+	public Plot(int y, int x, int num) {
+		this.y = y;
+		this.x = x;
+		this.num = num;
+	}
+}
  
