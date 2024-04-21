@@ -43,25 +43,21 @@ public class Main {
         map[i][j] = Integer.parseInt(st.nextToken());
       }
     }
-    int ans = move();
-    System.out.println(ans == Integer.MAX_VALUE ? "Fail" : ans);
+    System.out.println(move());
   } // end of class
 
-  public static int move() {
-    PriorityQueue<Person> pq = new PriorityQueue<>(
-        (p1, p2) -> (Integer.compare(p1.time, p2.time)));
+  public static String move() {
+    ArrayDeque<Person> queue = new ArrayDeque<>();
     boolean[][][] visited = new boolean[N + 2][M + 2][2]; // 1: 칼있을때 0: 없을때
-    int ans = Integer.MAX_VALUE;
-    pq.offer(new Person(1, 1, 0));
+    queue.offer(new Person(1, 1, 0));
     visited[1][1][0] = true;
-    while (!pq.isEmpty()) {
-      Person cur = pq.poll();
+    while (!queue.isEmpty()) {
+      Person cur = queue.poll();
       if (cur.time > T) {
-        continue;
+        break;
       }
       if (cur.y == N && cur.x == M) {
-        ans = Math.min(ans, cur.time);
-        continue;
+        return "" + cur.time;
       }
       for (int i = 0; i < 4; i++) {
         int ny = cur.y + DY[i];
@@ -71,13 +67,14 @@ public class Main {
         }
         if (map[ny][nx] == 2) {
           visited[ny][nx][1] = true;
-          pq.offer(new Person(ny, nx, cur.time + 1, 1));
+          queue.offer(new Person(ny, nx, cur.time + 1, 1));
+          continue;
         }
         visited[ny][nx][cur.hasGram] = true;
-        pq.offer(new Person(ny, nx, cur.time + 1, cur.hasGram));
+        queue.offer(new Person(ny, nx, cur.time + 1, cur.hasGram));
       }
     }
-    return ans;
+    return "Fail";
   }
 
   public static boolean chkRange(int ny, int nx) {
